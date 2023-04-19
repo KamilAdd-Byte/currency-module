@@ -1,7 +1,7 @@
 package com.rates.currency.webclient;
 
 import com.rates.currency.model.CurrencyDto;
-import com.rates.currency.external.webclient.impl.CurrencyWebClientBuilder;
+import com.rates.currency.external.webclient.impl.CurrencyWebMapperImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,13 +15,13 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @Slf4j
-class CurrencyWebClientBuilderTest {
+class CurrencyWebMapperImplTest {
 
-    CurrencyWebClientBuilder instance;
+    CurrencyWebMapperImpl instance;
 
     @BeforeEach
     void getCurrencyWebClientInstance(){
-        instance = CurrencyWebClientBuilder.getInstance();
+        instance = CurrencyWebMapperImpl.getInstance();
 
     }
 
@@ -36,7 +36,7 @@ class CurrencyWebClientBuilderTest {
 
         //given
         CurrencyDto eur = instance.getExchangeRatesOfLastTenDays("EUR");
-        Class<CurrencyWebClientBuilder> currencyWebClientClass = CurrencyWebClientBuilder.class;
+        Class<CurrencyWebMapperImpl> currencyWebClientClass = CurrencyWebMapperImpl.class;
         Field[] declaredFields = currencyWebClientClass.getDeclaredFields();
 
         //then

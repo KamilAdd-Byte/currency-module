@@ -2,32 +2,30 @@ package com.rates.currency.external.webclient.impl;
 
 import com.rates.currency.model.CurrencyDto;
 import com.rates.currency.external.model.CurrencyNbpExternalModel;
-import com.rates.currency.external.webclient.CurrencyWebClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-import java.time.LocalDate;
 
 /**
  * Responsibility getting currency from npb api and mapping/building it to CurrencyDto
  */
 @Slf4j
 @Component
-public class CurrencyWebClientBuilder implements CurrencyWebClient {
+public class CurrencyWebMapperImpl implements com.rates.currency.external.webclient.CurrencyWebMapper {
     //url model: https://api.nbp.pl/api/exchangerates/rates/A/USD/last/10
     private static final String BASIC_NBP_URL = "https://api.nbp.pl/api/exchangerates/rates/";
     private static final String TABLE_A = "/A/";
     private static final String LAST_TOP_10 = "/last/10";
 
-    private static CurrencyWebClientBuilder instance;
+    private static CurrencyWebMapperImpl instance;
     private final RestTemplate restTemplate = new RestTemplate();
 
-    private CurrencyWebClientBuilder() {
+    private CurrencyWebMapperImpl() {
     }
 
-    public static CurrencyWebClientBuilder getInstance() {
+    public static CurrencyWebMapperImpl getInstance() {
         if (instance == null) {
-            instance = new CurrencyWebClientBuilder();
+            instance = new CurrencyWebMapperImpl();
         }
         return instance;
     }
@@ -56,7 +54,7 @@ public class CurrencyWebClientBuilder implements CurrencyWebClient {
     }
 
     @Override
-    public CurrencyDto getOneCurrencyBy(String code, String table, LocalDate date) {
+    public CurrencyDto getOneCurrencyBy(String code, String table, String date) {
         CurrencyNbpExternalModel currencyNbpExternalModel = restTemplate.getForObject(BASIC_NBP_URL + table + "/" +
                 code.toUpperCase() + "/" + date, CurrencyNbpExternalModel.class, code);
         assert currencyNbpExternalModel != null;

@@ -1,26 +1,24 @@
 package com.rates.currency.service.impl;
 
 import com.rates.currency.model.CurrencyDto;
-import com.rates.currency.jsoupcode.service.impl.AbstractJsoupProcessorServiceImpl;
+import com.rates.currency.scrapp.service.impl.CurrencyCodesServiceImpl;
 import com.rates.currency.service.CurrencyService;
-import com.rates.currency.external.webclient.CurrencyWebClient;
-import com.rates.currency.external.webclient.impl.CurrencyWebClientBuilder;
+import com.rates.currency.external.webclient.impl.CurrencyWebMapperImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
 public class CurrencyServiceImpl implements CurrencyService {
 
-    private final CurrencyWebClient currencyWebClient;
+    private final com.rates.currency.external.webclient.CurrencyWebMapper currencyWebMapper;
     @Autowired
-    private AbstractJsoupProcessorServiceImpl abstractJsoupProcessorService;
+    private CurrencyCodesServiceImpl abstractJsoupProcessorService;
 
     @Autowired
-    public CurrencyServiceImpl(CurrencyWebClientBuilder currencyWebClient) {
-        this.currencyWebClient = currencyWebClient;
+    public CurrencyServiceImpl(CurrencyWebMapperImpl currencyWebClient) {
+        this.currencyWebMapper = currencyWebClient;
     }
 
     /**
@@ -38,8 +36,8 @@ public class CurrencyServiceImpl implements CurrencyService {
      * @return new CurrencyDto if exist
      */
     @Override
-    public CurrencyDto getCurrency(String code, String table, LocalDate date) {
-        return this.currencyWebClient.getOneCurrencyBy(code,table,date);
+    public CurrencyDto getCurrency(String code, String table, String date) {
+        return this.currencyWebMapper.getOneCurrencyBy(code,table,date);
     }
 
     /**
@@ -47,6 +45,6 @@ public class CurrencyServiceImpl implements CurrencyService {
      * @return currency and ten rates get to nbp api by rest template
      */
     public CurrencyDto getExchangeRatesOfLastTenDays(String code) {
-        return this.currencyWebClient.getExchangeRatesOfLastTenDays(code);
+        return this.currencyWebMapper.getExchangeRatesOfLastTenDays(code);
     }
 }

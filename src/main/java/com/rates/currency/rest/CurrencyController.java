@@ -22,7 +22,7 @@ public class CurrencyController {
     }
 
     @GetMapping(path = "/{code}/{table}/{date}")
-    public ResponseEntity<CurrencyDto> getCurrency(@PathVariable("code") String code, @PathVariable("table") String table, @PathVariable("date")LocalDate date) {
+    public ResponseEntity<CurrencyDto> getCurrency(@PathVariable("code") String code, @PathVariable("table") String table, @PathVariable("date") String date) {
         CurrencyDto currency = service.getCurrency(code, table, date);
         return ResponseEntity.ok().body(currency);
     }
