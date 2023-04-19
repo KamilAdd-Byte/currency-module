@@ -1,0 +1,7 @@
+server:
+  contextPath: /api/v1
+  port: 8484
+
+spring:
+  main:
+    allow-bean-definition-overriding: false
