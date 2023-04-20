@@ -9,6 +9,7 @@ import com.rates.currency.scrapp.model.websideline.WebSideLine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class CurrencyCodesServiceImpl implements CurrencyCodesService {
@@ -29,7 +30,7 @@ public class CurrencyCodesServiceImpl implements CurrencyCodesService {
 
 
     @Override
-    public List<CurrencyExchangeDto> allCurrencies() {
+    public Set<CurrencyExchangeDto> allCurrencies() {
         List<WebSideLine> webSideLines = getAllCodes();
         return CurrencyExchangeObtainer.of(webSideLines).getExchangeDtos();
     }

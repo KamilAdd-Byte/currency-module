@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class CurrencyServiceImpl implements CurrencyService {
@@ -42,7 +43,7 @@ public class CurrencyServiceImpl implements CurrencyService {
     }
 
     @Override
-    public List<CurrencyExchangeDto> currencyExchangeDtos() {
+    public Set<CurrencyExchangeDto> currencyExchangeDtos() {
         return codesService.allCurrencies();
     }
 

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @RestController
@@ -26,8 +27,8 @@ public class CurrencyController {
     }
 
     @GetMapping(path = "/currencies")
-    public ResponseEntity<List<CurrencyExchangeDto>> getAllCurrencies () {
-        List<CurrencyExchangeDto> currencyExchangeDtos = service.currencyExchangeDtos();
+    public ResponseEntity<Set<CurrencyExchangeDto>> getAllCurrencies () {
+        Set<CurrencyExchangeDto> currencyExchangeDtos = service.currencyExchangeDtos();
         return ResponseEntity.ok().body(currencyExchangeDtos);
     }
 
