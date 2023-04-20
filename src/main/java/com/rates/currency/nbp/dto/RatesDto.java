@@ -1,4 +1,4 @@
-package com.rates.currency.model;
+package com.rates.currency.nbp.dto;
 
 import lombok.*;
 

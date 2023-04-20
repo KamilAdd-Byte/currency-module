@@ -1,9 +1,13 @@
 package com.rates.currency.service.impl;
 
-import com.rates.currency.model.CurrencyDto;
-import com.rates.currency.scrapp.service.impl.CurrencyCodesServiceImpl;
+import com.rates.currency.nbp.dto.CurrencyDto;
+import com.rates.currency.scrapp.currency.service.CurrencyCodesService;
+import com.rates.currency.scrapp.model.dto.CurrencyExchangeDto;
+import com.rates.currency.scrapp.model.websideline.WebSideLine;
+import com.rates.currency.scrapp.currency.service.impl.CurrencyCodesServiceImpl;
+import com.rates.currency.scrapp.cantor.service.impl.RatesCantorServiceImpl;
 import com.rates.currency.service.CurrencyService;
-import com.rates.currency.external.webclient.impl.CurrencyWebMapperImpl;
+import com.rates.currency.nbp.mapper.impl.CurrencyWebMapperImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +16,12 @@ import java.util.List;
 @Service
 public class CurrencyServiceImpl implements CurrencyService {
 
-    private final com.rates.currency.external.webclient.CurrencyWebMapper currencyWebMapper;
+    private final com.rates.currency.nbp.mapper.CurrencyWebMapper currencyWebMapper;
     @Autowired
-    private CurrencyCodesServiceImpl abstractJsoupProcessorService;
+    private CurrencyCodesService codesService;
+
+    @Autowired
+    private RatesCantorServiceImpl ratesCantorService;
 
     @Autowired
     public CurrencyServiceImpl(CurrencyWebMapperImpl currencyWebClient) {
@@ -25,8 +32,18 @@ public class CurrencyServiceImpl implements CurrencyService {
      * @return 
      */
     @Override
-    public List<String> getAllCodes() {
-        return abstractJsoupProcessorService.allCodesWithWikipedia();
+    public List<WebSideLine> getAllCodes() {
+        return codesService.getAllCodes();
+    }
+
+    @Override
+    public List<WebSideLine> getAllRatesForCantor() {
+        return ratesCantorService.getAllRatesForCantor();
+    }
+
+    @Override
+    public List<CurrencyExchangeDto> currencyExchangeDtos() {
+        return codesService.allCurrencies();
     }
 
     /**

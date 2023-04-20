@@ -1,6 +1,6 @@
-package com.rates.currency.external.webclient;
+package com.rates.currency.nbp.mapper;
 
-import com.rates.currency.model.CurrencyDto;
+import com.rates.currency.nbp.dto.CurrencyDto;
 
 public interface CurrencyWebMapper {
     CurrencyDto getExchangeRatesOfLastTenDays(String code);

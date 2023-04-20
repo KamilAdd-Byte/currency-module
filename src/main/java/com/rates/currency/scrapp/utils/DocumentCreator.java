@@ -1,4 +1,4 @@
-package com.rates.currency.scrapp;
+package com.rates.currency.scrapp.utils;
 
 import com.rates.currency.exception.DocumentCreateException;
 import com.rates.currency.message.LogMessage;
@@ -7,16 +7,23 @@ import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Component;
-
 import java.io.IOException;
 
+/**
+ * Create new jsoup document
+ */
 @Slf4j
 @Component
 public class DocumentCreator {
 
+    /**
+     * @param baseUri uri web-side address to scrap
+     * @return new document ready to scrapping
+     */
     public Document create (String baseUri) {
         return Try.of(()-> createNewDocument(baseUri))
                 .onSuccess(doc -> log.info(LogMessage.documentCreatedMessage()))
+                .onFailure(fail -> log.error(LogMessage.documentNotCreatedMessage()))
                 .getOrElseThrow(DocumentCreateException::becauseDocumentNotCreated);
     }
 

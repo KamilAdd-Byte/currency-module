@@ -1,12 +1,11 @@
-package com.rates.currency.model;
+package com.rates.currency.nbp.model;
 
-import lombok.*;
+import com.rates.currency.nbp.dto.RatesDto;
+import lombok.Getter;
 import java.util.List;
 
 @Getter
-@Builder
-@ToString
-public class CurrencyDto {
+public class CurrencyNbpExternalModel {
     private String table;
     private String currency;
     private String code;

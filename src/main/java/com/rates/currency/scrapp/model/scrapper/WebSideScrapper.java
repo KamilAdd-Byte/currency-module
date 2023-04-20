@@ -1,22 +1,23 @@
-package com.rates.currency.scrapp;
+package com.rates.currency.scrapp.model.scrapper;
 
 import com.rates.currency.exception.ElementsCreateException;
 import io.vavr.control.Try;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-public class Scraper {
+public abstract class WebSideScrapper {
     private final Document document;
     private String elementByClass;
     private String elementByTag;
 
-    public Scraper(Document document, String byClass, String byTag) {
+
+    protected WebSideScrapper(Document document, String byClass, String byTag) {
         this.document = document;
         this.elementByClass = byClass;
         this.elementByTag = byTag;
     }
 
-    public Scraper(Document document) {
+    protected WebSideScrapper(Document document) {
         this.document = document;
     }
 

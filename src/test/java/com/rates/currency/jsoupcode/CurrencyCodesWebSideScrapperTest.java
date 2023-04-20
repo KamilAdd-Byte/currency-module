@@ -1,6 +1,6 @@
 package com.rates.currency.jsoupcode;
 
-import com.rates.currency.scrapp.service.impl.CurrencyCodesServiceImpl;
+import com.rates.currency.scrapp.currency.service.impl.CurrencyCodesServiceImpl;
 import com.rates.currency.service.CurrencyService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import static io.restassured.RestAssured.when;
 
-class CurrencyCodesScraperTest {
+class CurrencyCodesWebSideScrapperTest {
 
     @Autowired
     private CurrencyService service;

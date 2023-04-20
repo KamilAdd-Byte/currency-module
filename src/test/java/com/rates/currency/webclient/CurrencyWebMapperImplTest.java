@@ -1,7 +1,7 @@
 package com.rates.currency.webclient;
 
-import com.rates.currency.model.CurrencyDto;
-import com.rates.currency.external.webclient.impl.CurrencyWebMapperImpl;
+import com.rates.currency.nbp.dto.CurrencyDto;
+import com.rates.currency.nbp.mapper.impl.CurrencyWebMapperImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

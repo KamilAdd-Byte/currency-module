@@ -1,7 +1,7 @@
-package com.rates.currency.external.webclient.impl;
+package com.rates.currency.nbp.mapper.impl;
 
-import com.rates.currency.model.CurrencyDto;
-import com.rates.currency.external.model.CurrencyNbpExternalModel;
+import com.rates.currency.nbp.dto.CurrencyDto;
+import com.rates.currency.nbp.model.CurrencyNbpExternalModel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
  */
 @Slf4j
 @Component
-public class CurrencyWebMapperImpl implements com.rates.currency.external.webclient.CurrencyWebMapper {
+public class CurrencyWebMapperImpl implements com.rates.currency.nbp.mapper.CurrencyWebMapper {
     //url model: https://api.nbp.pl/api/exchangerates/rates/A/USD/last/10
     private static final String BASIC_NBP_URL = "https://api.nbp.pl/api/exchangerates/rates/";
     private static final String TABLE_A = "/A/";
