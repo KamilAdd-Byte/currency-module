@@ -1,4 +1,4 @@
-package com.rates.currency.scrapp.model.dto;
+package com.rates.currency.api.model.dto;
 
 import com.rates.currency.model.basic.BasicCurrency;
 import lombok.Getter;

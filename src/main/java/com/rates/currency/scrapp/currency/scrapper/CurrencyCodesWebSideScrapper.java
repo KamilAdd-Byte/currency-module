@@ -1,7 +1,7 @@
 package com.rates.currency.scrapp.currency.scrapper;
 
-import com.rates.currency.scrapp.model.websideline.WebSideLine;
-import com.rates.currency.scrapp.model.scrapper.WebSideScrapper;
+import com.rates.currency.api.model.websideline.WebSideLine;
+import com.rates.currency.api.model.scrapper.WebSideScrapper;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.nodes.Document;

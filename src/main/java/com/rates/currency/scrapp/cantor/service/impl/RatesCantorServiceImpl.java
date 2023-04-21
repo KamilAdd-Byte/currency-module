@@ -2,7 +2,7 @@ package com.rates.currency.scrapp.cantor.service.impl;
 
 import com.rates.currency.scrapp.utils.DocumentCreator;
 import com.rates.currency.scrapp.cantor.scrapper.RatesCantorScrapper;
-import com.rates.currency.scrapp.model.websideline.WebSideLine;
+import com.rates.currency.api.model.websideline.WebSideLine;
 import com.rates.currency.scrapp.cantor.service.RatesCantorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
