@@ -2,9 +2,8 @@ package com.rates.currency.service.impl;
 
 import com.rates.currency.nbp.dto.CurrencyDto;
 import com.rates.currency.scrapp.currency.service.CurrencyCodesService;
-import com.rates.currency.scrapp.model.dto.CurrencyExchangeDto;
-import com.rates.currency.scrapp.model.websideline.WebSideLine;
-import com.rates.currency.scrapp.currency.service.impl.CurrencyCodesServiceImpl;
+import com.rates.currency.api.model.dto.CurrencyExchangeDto;
+import com.rates.currency.api.model.websideline.WebSideLine;
 import com.rates.currency.scrapp.cantor.service.impl.RatesCantorServiceImpl;
 import com.rates.currency.service.CurrencyService;
 import com.rates.currency.nbp.mapper.impl.CurrencyWebMapperImpl;

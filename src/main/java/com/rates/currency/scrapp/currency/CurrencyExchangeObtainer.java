@@ -2,8 +2,8 @@ package com.rates.currency.scrapp.currency;
 
 import com.rates.currency.message.LogMessage;
 import com.rates.currency.scrapp.currency.scrapper.CurrencyCodesWebSideScrapper;
-import com.rates.currency.scrapp.model.dto.CurrencyExchangeDto;
-import com.rates.currency.scrapp.model.websideline.WebSideLine;
+import com.rates.currency.api.model.dto.CurrencyExchangeDto;
+import com.rates.currency.api.model.websideline.WebSideLine;
 import io.vavr.control.Try;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;

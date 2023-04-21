@@ -1,19 +1,18 @@
 package com.rates.currency.api.response;
 
-import com.rates.currency.model.basic.BasicCurrency;
-import com.rates.currency.nbp.dto.CurrencyDto;
+import com.rates.currency.api.model.dto.CurrencyExchangeDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CurrencyResponse<T> {
+public class CurrencyCodeResponse {
     private String requestId;
     private Date requestCreated;
-    private String requestCurrencyData;
-    private T currencyDto;
+    private Set<CurrencyExchangeDto> currencyDto;
 }

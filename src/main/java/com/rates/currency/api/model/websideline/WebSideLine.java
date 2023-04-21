@@ -1,4 +1,4 @@
-package com.rates.currency.scrapp.model.websideline;
+package com.rates.currency.api.model.websideline;
 
 import lombok.Value;
 

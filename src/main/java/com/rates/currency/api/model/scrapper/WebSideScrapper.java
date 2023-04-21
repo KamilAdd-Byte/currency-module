@@ -1,4 +1,4 @@
-package com.rates.currency.scrapp.model.scrapper;
+package com.rates.currency.api.model.scrapper;
 
 import com.rates.currency.exception.ElementsCreateException;
 import io.vavr.control.Try;
