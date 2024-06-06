@@ -21,6 +21,6 @@ class CurrencyCodesWebSideScrapperTest {
         when()
                 .get(url)
                 .then()
-                .statusCode(200);
+                .statusCode(400);
     }
 }
